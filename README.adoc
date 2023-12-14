@@ -27,4 +27,42 @@ Feature: Is it Friday yet?
 .Exemple d'image insérée en asciidoc
 image::image/image.png[]
 
-== TP2...
+== TP2
+
+[source,java]
+---
+  class Order{
+
+    private String owner;
+    private String target;
+    private String message;
+    private List<String> cocktails = new ArrayList<String>();
+
+    public void declareOwner(String string) {
+        this.owner = string;
+    }
+
+    public void setMessage(String string) {
+        this.message = string;
+    }
+
+    public Object getMessage() {
+        return("From "+this.owner+" to "+this.target+": "+this.message);
+    }
+
+    public List<String> getCocktails() {
+        return cocktails;
+    }
+
+    public void declareTarget(String string) {
+        this.target = string;
+
+    }
+
+    public void nbrCocktail(Integer nbr) {
+        for(int i =0;i< nbr;i++){
+            this.cocktails.add("Cocktail");
+        }
+    }
+---
+image::image/imageTP2.png[]

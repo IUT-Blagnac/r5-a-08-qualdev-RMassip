@@ -66,3 +66,25 @@ image::image/image.png[]
     }
 ---
 image::image/imageTP2.png[]
+
+== TP3
+
+=== Feature:
+
+Feature: Test Pixel
+
+    Scenario Outline: Test du Pixel avec couleur
+        Given J'ai une image "<Etoile>"
+        When je fais le changement en "<couleur1>" est blanc
+        And que je recupère la couleur du pixel au coordonnée 1 1
+        Then la couleur doit être blanc
+
+    Examples:
+        | couleur1 | Etoile                |
+        | Noir     | resources\Etoile2.jpg |
+        | Bleu     | resources\Etoile2.jpg |
+        | Vert     | resources\Etoile2.jpg |
+        | Rouge    | resources\Etoile2.jpg |
+
+image::image/imagetp3.png[]
+

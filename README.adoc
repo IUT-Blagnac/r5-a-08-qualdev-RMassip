@@ -1,22 +1,90 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=13207721&assignment_repo_type=AssignmentRepo)
 = R5.A.08 -- Dépôt pour les TPs
 :icons: font
 :MoSCoW: https://fr.wikipedia.org/wiki/M%C3%A9thode_MoSCoW[MoSCoW]
 
-Ce dépôt concerne les rendus de mailto:A_changer@etu.univ-tlse2.fr[Jonh Doe].
+Ce dépôt concerne les rendus de mailto:romain.massip@etu.univ-tlse2.fr[Romain Massip].
 
 == TP1
 
 .Exemple de code
 [source,java]
 ---
-@Given("today is Sunday")
-public void today_is_sunday() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
+Feature: Is it Friday yet?
+  Everybody wants to know when it's Friday
+    Scenario Outline: Day of the week
+    Given today is "<day>"
+    When I ask whether it's Friday yet
+    Then I should be told "<answer>"
+    Examples:
+    | day            | answer |
+    | Friday         | TGIF   |
+    | Sunday         | Nope   |
+    | anything else! | Nope   |
 ---
 
-.Exemple d'image insérée en asciidoc
-image::artifacts-r303.svg[width=80%]
 
-== TP2...
+.Exemple d'image insérée en asciidoc
+image::image/image.png[]
+
+== TP2
+
+[source,java]
+---
+  class Order{
+
+    private String owner;
+    private String target;
+    private String message;
+    private List<String> cocktails = new ArrayList<String>();
+
+    public void declareOwner(String string) {
+        this.owner = string;
+    }
+
+    public void setMessage(String string) {
+        this.message = string;
+    }
+
+    public Object getMessage() {
+        return("From "+this.owner+" to "+this.target+": "+this.message);
+    }
+
+    public List<String> getCocktails() {
+        return cocktails;
+    }
+
+    public void declareTarget(String string) {
+        this.target = string;
+
+    }
+
+    public void nbrCocktail(Integer nbr) {
+        for(int i =0;i< nbr;i++){
+            this.cocktails.add("Cocktail");
+        }
+    }
+---
+image::image/imageTP2.png[]
+
+== TP3
+
+=== Feature:
+
+Feature: Test Pixel
+
+    Scenario Outline: Test du Pixel avec couleur
+        Given J'ai une image "<Etoile>"
+        When je fais le changement en "<couleur1>" est blanc
+        And que je recupère la couleur du pixel au coordonnée 1 1
+        Then la couleur doit être blanc
+
+    Examples:
+        | couleur1 | Etoile                |
+        | Noir     | resources\Etoile2.jpg |
+        | Bleu     | resources\Etoile2.jpg |
+        | Vert     | resources\Etoile2.jpg |
+        | Rouge    | resources\Etoile2.jpg |
+
+image::image/imagetp3.png[]
+
